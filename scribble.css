@@ -2,3 +2,84 @@
    SCRIBBLE.CSS — A Hand-Drawn CSS Framework
    Version 1.0.0 | MIT License | github.com/jerankda/scribbleCSS
    ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS — CSS Custom Properties
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* ===== TYPOGRAPHY ===== */
+  --scribble-font: 'Patrick Hand', 'Pangolin', 'Comic Neue', 'Comic Sans MS',
+    'Chalkboard SE', 'Marker Felt', cursive;
+  --scribble-font-marker: 'Permanent Marker', 'Marker Felt', 'Comic Sans MS',
+    cursive;
+  --scribble-font-mono: 'Courier Prime', 'Courier New', monospace;
+  --scribble-font-size-root: 16px;
+  --scribble-line-height: 1.6;
+
+  /* ===== INK & PENCIL — core text colors ===== */
+  --scribble-ink: #1a1a2e;
+  --scribble-ink-light: #3a3a55;
+  --scribble-pencil: #5c5c5c;
+  --scribble-pencil-light: #919191;
+
+  /* ===== CRAYON PALETTE — vivid, slightly muted ===== */
+  --scribble-crayon-red: #e63946;
+  --scribble-crayon-blue: #457b9d;
+  --scribble-crayon-green: #2a9d8f;
+  --scribble-crayon-yellow: #e9c46a;
+  --scribble-crayon-orange: #f4a261;
+  --scribble-crayon-purple: #9b5de5;
+  --scribble-crayon-pink: #f15bb5;
+  --scribble-crayon-teal: #00b4d8;
+
+  /* ===== HIGHLIGHTERS — translucent marker colors ===== */
+  --scribble-highlight-yellow: #ffeb3b;
+  --scribble-highlight-pink: #ff6b9d;
+  --scribble-highlight-green: #06d6a0;
+  --scribble-highlight-blue: #4cc9f0;
+
+  /* ===== PAPER — notebook tones ===== */
+  --scribble-paper: #faf9f6;
+  --scribble-paper-dark: #f0e9dc;
+  --scribble-paper-line: #c8d6e5;
+  --scribble-paper-margin: #ffb3b3;
+  --scribble-paper-grid: #d8dce6;
+
+  /* ===== STICKY NOTES ===== */
+  --scribble-sticky-yellow: #fff9c4;
+  --scribble-sticky-pink: #fce4ec;
+  --scribble-sticky-blue: #e3f2fd;
+  --scribble-sticky-green: #e8f5e9;
+  --scribble-sticky-lavender: #f3e5f5;
+
+  /* ===== BORDERS & RADII — irregular on purpose ===== */
+  --scribble-border-width: 2px;
+  --scribble-border: var(--scribble-border-width) solid var(--scribble-ink);
+  --scribble-border-light: 1px solid var(--scribble-pencil-light);
+  --scribble-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --scribble-radius-sm: 100px 8px 100px 8px / 6px 100px 6px 100px;
+  --scribble-radius-lg: 300px 20px 280px 22px / 18px 280px 18px 300px;
+
+  /* ===== SPACING — based on 1rem scale ===== */
+  --scribble-space-xs: 0.25rem;
+  --scribble-space-sm: 0.5rem;
+  --scribble-space-md: 1rem;
+  --scribble-space-lg: 1.5rem;
+  --scribble-space-xl: 2rem;
+  --scribble-space-2xl: 3rem;
+  --scribble-space-3xl: 4rem;
+
+  /* ===== SHADOWS — offset, no blur ===== */
+  --scribble-shadow-sm: 2px 3px 0 rgba(0, 0, 0, 0.1);
+  --scribble-shadow: 3px 5px 0 rgba(0, 0, 0, 0.15);
+  --scribble-shadow-lg: 5px 7px 0 rgba(0, 0, 0, 0.12);
+  --scribble-shadow-color: 4px 6px 0 rgba(0, 0, 0, 0.08);
+
+  /* ===== ANIMATION ===== */
+  --scribble-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --scribble-ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --scribble-transition: 0.2s var(--scribble-ease-bounce);
+  --scribble-transition-slow: 0.4s var(--scribble-ease-smooth);
+}
