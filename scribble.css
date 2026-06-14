@@ -175,3 +175,75 @@ a:hover {
   background: var(--scribble-highlight-yellow);
   color: var(--scribble-ink);
 }
+
+
+/* --------------------------------------------------------------------------
+   3. SVG FILTERS — Rough edges, crayon texture, torn paper
+   Embed this snippet in your <body> for the filters to work.
+   --------------------------------------------------------------------------
+
+   <svg style="display:none" aria-hidden="true">
+     <filter id="scribble-rough" ...>
+     ...
+   </svg>
+
+   -------------------------------------------------------------------------- */
+
+/* Filter 1: Subtle rough edge (buttons, inputs) */
+.scroll-rough {
+  filter: url('#scribble-rough');
+  -webkit-filter: url('#scribble-rough');
+}
+
+/* Filter 2: Heavier rough edge (cards with attitude) */
+.scroll-rough-heavy {
+  filter: url('#scribble-rough-heavy');
+  -webkit-filter: url('#scribble-rough-heavy');
+}
+
+/* Filter 3: Crayon texture fill */
+.scroll-crayon {
+  filter: url('#scribble-crayon');
+  -webkit-filter: url('#scribble-crayon');
+}
+
+/* Filter 4: Torn paper edge */
+.scroll-tear {
+  filter: url('#scribble-tear');
+  -webkit-filter: url('#scribble-tear');
+}
+
+/*
+   SVG filter definitions (copy into your HTML <body> or <svg> element):
+
+   <svg style="display:none;position:absolute;width:0;height:0" aria-hidden="true">
+     <filter id="scribble-rough" x="-5%" y="-5%" width="110%" height="110%">
+       <feTurbulence type="turbulence" baseFrequency="0.04"
+         numOctaves="3" result="noise" />
+       <feDisplacementMap in="SourceGraphic" in2="noise"
+         scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+     </filter>
+
+     <filter id="scribble-rough-heavy" x="-8%" y="-8%" width="116%" height="116%">
+       <feTurbulence type="turbulence" baseFrequency="0.06"
+         numOctaves="4" result="noise" />
+       <feDisplacementMap in="SourceGraphic" in2="noise"
+         scale="4" xChannelSelector="R" yChannelSelector="G" />
+     </filter>
+
+     <filter id="scribble-crayon" x="-2%" y="-2%" width="104%" height="104%">
+       <feTurbulence type="fractalNoise" baseFrequency="0.5"
+         numOctaves="3" result="noise" />
+       <feColorMatrix type="matrix" in="noise"
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.08 0" />
+       <feComposite in="SourceGraphic" in2="noise" operator="in" />
+     </filter>
+
+     <filter id="scribble-tear" x="-2%" y="-2%" width="104%" height="104%">
+       <feTurbulence type="turbulence" baseFrequency="0.08"
+         numOctaves="5" result="noise" />
+       <feDisplacementMap in="SourceGraphic" in2="noise"
+         scale="6" xChannelSelector="R" yChannelSelector="G" />
+     </filter>
+   </svg>
+ */
