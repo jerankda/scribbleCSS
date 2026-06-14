@@ -247,3 +247,205 @@ a:hover {
      </filter>
    </svg>
  */
+
+
+/* --------------------------------------------------------------------------
+   4. TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+
+/* Headings — wobbly underlines using SVG background */
+h1, h2, h3, h4, h5, h6,
+.scroll-h1, .scroll-h2, .scroll-h3,
+.scroll-h4, .scroll-h5, .scroll-h6 {
+  font-family: var(--scribble-font-marker);
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  color: var(--scribble-ink);
+  position: relative;
+}
+
+h1, .scroll-h1 {
+  font-size: 2.5rem;
+  padding-bottom: 0.3em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='12' viewBox='0 0 400 12'%3E%3Cpath d='M0,8 Q50,2 100,6 Q150,10 200,4 Q250,0 300,7 Q350,12 400,5' fill='none' stroke='%23e63946' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 200px 6px;
+}
+
+h2, .scroll-h2 {
+  font-size: 2rem;
+  padding-bottom: 0.25em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='10' viewBox='0 0 300 10'%3E%3Cpath d='M0,6 Q60,2 120,7 Q180,10 240,4 Q300,0 300,4' fill='none' stroke='%23457b9d' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 180px 5px;
+}
+
+h3, .scroll-h3 {
+  font-size: 1.6rem;
+  padding-bottom: 0.2em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='8' viewBox='0 0 250 8'%3E%3Cpath d='M0,5 Q50,2 100,6 Q150,8 200,3 Q250,2 250,5' fill='none' stroke='%232a9d8f' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 150px 4px;
+}
+
+h4, .scroll-h4 {
+  font-size: 1.35rem;
+}
+
+h5, .scroll-h5 {
+  font-size: 1.15rem;
+}
+
+h6, .scroll-h6 {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Headings without underline */
+h4, h5, h6,
+.scroll-h4, .scroll-h5, .scroll-h6 {
+  background-image: none;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1em;
+}
+
+/* Highlighter — mark element */
+mark,
+.scroll-mark {
+  background-color: var(--scribble-highlight-yellow);
+  color: var(--scribble-ink);
+  padding: 0.05em 0.2em;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Hand-drawn strikethrough */
+del,
+s,
+.scroll-strike {
+  text-decoration: none;
+  position: relative;
+}
+
+del::after,
+s::after,
+.scroll-strike::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2%;
+  width: 104%;
+  height: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='8' viewBox='0 0 100 8'%3E%3Cpath d='M0,4 Q15,2 30,6 Q45,8 60,3 Q75,0 90,5 Q100,2 100,4' fill='none' stroke='%23e63946' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Underline helper */
+ins,
+.scroll-underline {
+  text-decoration: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='8' viewBox='0 0 100 8'%3E%3Cpath d='M0,6 Q20,3 40,5 Q60,7 80,4 Q100,2 100,5' fill='none' stroke='%23currentColor' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 100px 4px;
+  padding-bottom: 2px;
+}
+
+/* Blockquote — torn note */
+blockquote {
+  margin: var(--scribble-space-lg) 0;
+  padding: var(--scribble-space-lg) var(--scribble-space-xl);
+  border: none;
+  background: var(--scribble-sticky-yellow);
+  border-radius: var(--scribble-radius);
+  box-shadow: var(--scribble-shadow);
+  position: relative;
+  transform: rotate(-0.5deg);
+  font-style: italic;
+}
+
+blockquote::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 60px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--scribble-space-sm);
+  font-size: 0.85rem;
+  color: var(--scribble-pencil);
+  font-style: normal;
+}
+
+blockquote cite::before {
+  content: '— ';
+}
+
+/* Inline code */
+code {
+  font-family: var(--scribble-font-mono);
+  font-size: 0.9em;
+  background: var(--scribble-sticky-blue);
+  padding: 0.1em 0.4em;
+  border-radius: var(--scribble-radius-sm);
+  color: var(--scribble-crayon-blue);
+}
+
+pre {
+  font-family: var(--scribble-font-mono);
+  font-size: 0.9rem;
+  background: var(--scribble-paper-dark);
+  padding: var(--scribble-space-lg);
+  border-radius: var(--scribble-radius);
+  border: var(--scribble-border-light);
+  overflow-x: auto;
+  margin-bottom: var(--scribble-space-lg);
+  box-shadow: var(--scribble-shadow-sm);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--scribble-ink);
+  border-radius: 0;
+}
+
+/* Small text */
+small,
+.scroll-small {
+  font-size: 0.85em;
+  color: var(--scribble-pencil);
+}
+
+/* Bold & Italic — use marker font for strong emphasis */
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+/* Hand-drawn list reset */
+.scroll-list-none {
+  list-style: none;
+  padding-left: 0;
+}
