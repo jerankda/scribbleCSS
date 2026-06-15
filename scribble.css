@@ -449,3 +449,128 @@ em {
   list-style: none;
   padding-left: 0;
 }
+
+
+/* --------------------------------------------------------------------------
+   5. LAYOUT SYSTEM
+   -------------------------------------------------------------------------- */
+
+/* Container — centers content with notebook margins */
+.scroll-container {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--scribble-space-lg);
+  padding-right: var(--scribble-space-lg);
+}
+
+.scroll-container--narrow {
+  max-width: 720px;
+}
+
+.scroll-container--wide {
+  max-width: 1400px;
+}
+
+/* Flex utilities */
+.scroll-flex {
+  display: flex;
+  gap: var(--scribble-space-md);
+}
+
+.scroll-flex--wrap {
+  flex-wrap: wrap;
+}
+
+.scroll-flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-flex--between {
+  justify-content: space-between;
+}
+
+.scroll-flex--column {
+  flex-direction: column;
+}
+
+.scroll-flex--gap-sm { gap: var(--scribble-space-sm); }
+.scroll-flex--gap-lg { gap: var(--scribble-space-lg); }
+.scroll-flex--gap-xl { gap: var(--scribble-space-xl); }
+
+/* Grid system — 12 column layout */
+.scroll-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--scribble-space-lg);
+}
+
+.scroll-grid--gap-sm { gap: var(--scribble-space-sm); }
+.scroll-grid--gap-lg { gap: var(--scribble-space-xl); }
+.scroll-grid--gap-xl { gap: var(--scribble-space-2xl); }
+
+/* Column spans */
+.scroll-col-1  { grid-column: span 1; }
+.scroll-col-2  { grid-column: span 2; }
+.scroll-col-3  { grid-column: span 3; }
+.scroll-col-4  { grid-column: span 4; }
+.scroll-col-5  { grid-column: span 5; }
+.scroll-col-6  { grid-column: span 6; }
+.scroll-col-7  { grid-column: span 7; }
+.scroll-col-8  { grid-column: span 8; }
+.scroll-col-9  { grid-column: span 9; }
+.scroll-col-10 { grid-column: span 10; }
+.scroll-col-11 { grid-column: span 11; }
+.scroll-col-12 { grid-column: span 12; }
+
+/* Responsive columns — auto-fit with min width */
+.scroll-grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.scroll-grid--auto-sm {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.scroll-grid--auto-lg {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* Stack — vertical layout with consistent spacing */
+.scroll-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scribble-space-md);
+}
+
+.scroll-stack--sm { gap: var(--scribble-space-sm); }
+.scroll-stack--lg { gap: var(--scribble-space-lg); }
+.scroll-stack--xl { gap: var(--scribble-space-xl); }
+
+/* Center — dead center anything */
+.scroll-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Margin utilities */
+.scroll-mt-0  { margin-top: 0; }
+.scroll-mt-sm { margin-top: var(--scribble-space-sm); }
+.scroll-mt-md { margin-top: var(--scribble-space-md); }
+.scroll-mt-lg { margin-top: var(--scribble-space-lg); }
+.scroll-mt-xl { margin-top: var(--scribble-space-xl); }
+
+.scroll-mb-0  { margin-bottom: 0; }
+.scroll-mb-sm { margin-bottom: var(--scribble-space-sm); }
+.scroll-mb-md { margin-bottom: var(--scribble-space-md); }
+.scroll-mb-lg { margin-bottom: var(--scribble-space-lg); }
+.scroll-mb-xl { margin-bottom: var(--scribble-space-xl); }
+
+/* Padding utilities */
+.scroll-p-sm { padding: var(--scribble-space-sm); }
+.scroll-p-md { padding: var(--scribble-space-md); }
+.scroll-p-lg { padding: var(--scribble-space-lg); }
+.scroll-p-xl { padding: var(--scribble-space-xl); }
