@@ -930,3 +930,63 @@ em {
   background-position: left bottom;
   background-size: 120px 4px;
 }
+
+
+/* --------------------------------------------------------------------------
+   8. TILT UTILITIES — Pseudo-random rotations
+   -------------------------------------------------------------------------- */
+
+.scroll-tilt-1 { transform: rotate(-1.5deg); }
+.scroll-tilt-2 { transform: rotate(1deg); }
+.scroll-tilt-3 { transform: rotate(-0.8deg); }
+.scroll-tilt-4 { transform: rotate(1.3deg); }
+.scroll-tilt-5 { transform: rotate(-2deg); }
+.scroll-tilt-6 { transform: rotate(0.5deg); }
+.scroll-tilt-7 { transform: rotate(-0.3deg); }
+.scroll-tilt-8 { transform: rotate(-1.1deg); }
+
+.scroll-tilt-1:hover,
+.scroll-tilt-2:hover,
+.scroll-tilt-3:hover,
+.scroll-tilt-4:hover,
+.scroll-tilt-5:hover,
+.scroll-tilt-6:hover,
+.scroll-tilt-7:hover,
+.scroll-tilt-8:hover {
+  transform: rotate(0deg);
+}
+
+/* Text alignment */
+.scroll-text-left   { text-align: left; }
+.scroll-text-center { text-align: center; }
+.scroll-text-right  { text-align: right; }
+
+/* Text transforms */
+.scroll-uppercase  { text-transform: uppercase; letter-spacing: 0.05em; }
+.scroll-lowercase  { text-transform: lowercase; }
+.scroll-capitalize { text-transform: capitalize; }
+
+/* Font weight */
+.scroll-bold    { font-weight: 700; }
+.scroll-normal  { font-weight: 400; }
+.scroll-light   { font-weight: 300; }
+
+/* Truncate */
+.scroll-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Visually hidden — accessible */
+.scroll-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
