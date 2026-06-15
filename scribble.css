@@ -781,3 +781,152 @@ em {
 .scroll-btn-group .scroll-btn + .scroll-btn {
   border-left-width: 0;
 }
+
+
+/* --------------------------------------------------------------------------
+   7. CARDS
+   -------------------------------------------------------------------------- */
+
+.scroll-card {
+  background: var(--scribble-paper);
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius);
+  padding: var(--scribble-space-xl);
+  box-shadow: var(--scribble-shadow);
+  position: relative;
+  transition: transform var(--scribble-transition),
+              box-shadow var(--scribble-transition);
+}
+
+.scroll-card:hover {
+  transform: translateY(-3px) rotate(0.3deg);
+  box-shadow: var(--scribble-shadow-lg);
+}
+
+/* Card — notebook paper style */
+.scroll-card--notebook {
+  background-image:
+    repeating-linear-gradient(
+      var(--scribble-paper) 0px,
+      var(--scribble-paper) 27px,
+      var(--scribble-paper-line) 27px,
+      var(--scribble-paper-line) 28px
+    ),
+    linear-gradient(
+      to right,
+      var(--scribble-paper-margin) 0px,
+      var(--scribble-paper-margin) 40px,
+      transparent 40px
+    );
+  padding-left: calc(var(--scribble-space-xl) + 40px);
+}
+
+/* Card — sticky note */
+.scroll-card--sticky {
+  background: var(--scribble-sticky-yellow);
+  border: none;
+  transform: rotate(-1deg);
+  box-shadow:
+    2px 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.scroll-card--sticky:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.scroll-card--sticky::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 50px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Card — sticky variants by color */
+.scroll-card--sticky-pink  { background: var(--scribble-sticky-pink); }
+.scroll-card--sticky-blue  { background: var(--scribble-sticky-blue); }
+.scroll-card--sticky-green { background: var(--scribble-sticky-green); }
+.scroll-card--sticky-lavender { background: var(--scribble-sticky-lavender); }
+
+/* Card — dog-ear corner */
+.scroll-card--dogear {
+  overflow: hidden;
+}
+
+.scroll-card--dogear::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 30px 30px 0;
+  border-style: solid;
+  border-color: var(--scribble-paper-dark) var(--scribble-paper);
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+/* Card — torn edge */
+.scroll-card--torn {
+  filter: url('#scribble-rough-heavy');
+  -webkit-filter: url('#scribble-rough-heavy');
+}
+
+/* Card — outlined (minimal) */
+.scroll-card--outline {
+  background: transparent;
+  border: 2px dashed var(--scribble-pencil);
+  box-shadow: none;
+}
+
+.scroll-card--outline:hover {
+  border-style: solid;
+  border-color: var(--scribble-ink);
+}
+
+/* Card — doodle border (sketchy double line) */
+.scroll-card--doodle {
+  outline: 2px solid var(--scribble-ink);
+  outline-offset: -7px;
+}
+
+/* Card sections */
+.scroll-card__header {
+  margin-bottom: var(--scribble-space-md);
+  padding-bottom: var(--scribble-space-sm);
+  border-bottom: 2px solid var(--scribble-paper-line);
+}
+
+.scroll-card__footer {
+  margin-top: var(--scribble-space-md);
+  padding-top: var(--scribble-space-sm);
+  border-top: 2px solid var(--scribble-paper-line);
+}
+
+.scroll-card__image {
+  width: calc(100% + var(--scribble-space-xl) * 2);
+  margin: calc(var(--scribble-space-xl) * -1);
+  margin-bottom: var(--scribble-space-lg);
+  object-fit: cover;
+}
+
+.scroll-card__image:first-child {
+  border-radius: var(--scribble-radius) var(--scribble-radius) 0 0;
+}
+
+/* Card title */
+.scroll-card__title {
+  font-family: var(--scribble-font-marker);
+  font-size: 1.3rem;
+  margin-bottom: var(--scribble-space-sm);
+  padding-bottom: 0.15em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8' viewBox='0 0 200 8'%3E%3Cpath d='M0,5 Q40,2 80,6 Q120,8 160,3 Q200,2 200,5' fill='none' stroke='%23currentColor' stroke-width='2' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 120px 4px;
+}
