@@ -1734,3 +1734,90 @@ em {
   color: #fff;
   border-color: var(--scribble-crayon-blue);
 }
+
+
+/* --------------------------------------------------------------------------
+   13. TABLES
+   -------------------------------------------------------------------------- */
+
+.scroll-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--scribble-font);
+  font-size: 0.95rem;
+  margin-bottom: var(--scribble-space-lg);
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--scribble-shadow-sm);
+}
+
+.scroll-table th {
+  font-family: var(--scribble-font-marker);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: left;
+  padding: 0.7em 1em;
+  background: var(--scribble-paper-dark);
+  border-bottom: 3px solid var(--scribble-ink);
+  color: var(--scribble-ink);
+}
+
+.scroll-table td {
+  padding: 0.6em 1em;
+  border-bottom: 1px solid var(--scribble-paper-line);
+  color: var(--scribble-ink);
+}
+
+.scroll-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Striped rows — notebook rule feel */
+.scroll-table--striped tr:nth-child(even) td {
+  background: var(--scribble-sticky-blue);
+}
+
+/* Hover row */
+.scroll-table--hover tr:hover td {
+  background: var(--scribble-sticky-yellow);
+}
+
+/* Compact table */
+.scroll-table--compact th,
+.scroll-table--compact td {
+  padding: 0.4em 0.7em;
+  font-size: 0.85rem;
+}
+
+/* Table — sketched borders */
+.scroll-table--sketchy {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.scroll-table--sketchy th,
+.scroll-table--sketchy td {
+  border: 1px dashed var(--scribble-pencil-light);
+}
+
+.scroll-table--sketchy th {
+  background: transparent;
+  border-bottom: 3px double var(--scribble-ink);
+}
+
+/* Table container for horizontal scroll */
+.scroll-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius-sm);
+  box-shadow: var(--scribble-shadow-sm);
+}
+
+.scroll-table-container .scroll-table {
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
