@@ -1024,7 +1024,7 @@ em {
   box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.06);
 
   transition:
-    border-color var(--scribble-transition,
+    border-color var(--scribble-transition),
     box-shadow var(--scribble-transition),
     transform var(--scribble-transition);
 
@@ -1161,4 +1161,150 @@ em {
   opacity: 0.5;
   cursor: not-allowed;
   background: var(--scribble-paper-dark);
+}
+
+/* Checkbox & Radio — custom hand-drawn controls */
+.scroll-checkbox,
+.scroll-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--scribble-space-sm);
+  cursor: pointer;
+  font-family: var(--scribble-font);
+  font-size: 1rem;
+  position: relative;
+  padding-left: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.scroll-checkbox input,
+.scroll-radio input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* Checkbox — hand-drawn square */
+.scroll-checkbox__indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border: 2px solid var(--scribble-ink);
+  border-radius: var(--scribble-radius-sm);
+  background: var(--scribble-paper);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.06);
+  transition: var(--scribble-transition);
+}
+
+.scroll-checkbox input:checked + .scroll-checkbox__indicator {
+  background: var(--scribble-crayon-blue);
+  border-color: var(--scribble-crayon-blue);
+}
+
+.scroll-checkbox input:checked + .scroll-checkbox__indicator::after {
+  content: '';
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(35deg);
+  margin-top: -2px;
+}
+
+.scroll-checkbox input:focus-visible + .scroll-checkbox__indicator {
+  outline: 2px dashed var(--scribble-ink);
+  outline-offset: 2px;
+}
+
+/* Radio — hand-drawn circle */
+.scroll-radio__indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border: 2px solid var(--scribble-ink);
+  border-radius: 50%;
+  background: var(--scribble-paper);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.06);
+  transition: var(--scribble-transition);
+}
+
+.scroll-radio input:checked + .scroll-radio__indicator::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--scribble-crayon-blue);
+}
+
+.scroll-radio input:focus-visible + .scroll-radio__indicator {
+  outline: 2px dashed var(--scribble-ink);
+  outline-offset: 2px;
+}
+
+/* Toggle Switch — hand-drawn */
+.scroll-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--scribble-space-sm);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.scroll-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.scroll-switch__track {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+  background: var(--scribble-paper-dark);
+  border: 2px solid var(--scribble-ink);
+  border-radius: var(--scribble-radius);
+  transition: var(--scribble-transition);
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-switch__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--scribble-paper);
+  border: 2px solid var(--scribble-ink);
+  transition: transform var(--scribble-transition);
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.scroll-switch input:checked + .scroll-switch__track {
+  background: var(--scribble-crayon-green);
+  border-color: var(--scribble-crayon-green);
+}
+
+.scroll-switch input:checked + .scroll-switch__track .scroll-switch__thumb {
+  transform: translateX(22px);
+}
+
+.scroll-switch input:focus-visible + .scroll-switch__track {
+  outline: 2px dashed var(--scribble-ink);
+  outline-offset: 3px;
 }
