@@ -990,3 +990,175 @@ em {
   white-space: nowrap;
   border: 0;
 }
+
+
+/* --------------------------------------------------------------------------
+   9. FORMS
+   -------------------------------------------------------------------------- */
+
+/* Label */
+.scroll-label {
+  display: block;
+  font-family: var(--scribble-font-marker);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: var(--scribble-space-xs);
+  color: var(--scribble-ink);
+}
+
+/* Input, Textarea, Select — hand-drawn rough border */
+.scroll-input,
+.scroll-textarea,
+.scroll-select {
+  display: block;
+  width: 100%;
+  font-family: var(--scribble-font);
+  font-size: 1rem;
+  line-height: var(--scribble-line-height);
+  color: var(--scribble-ink);
+  background: var(--scribble-paper);
+
+  padding: 0.6em 0.8em;
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius-sm);
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.06);
+
+  transition:
+    border-color var(--scribble-transition,
+    box-shadow var(--scribble-transition),
+    transform var(--scribble-transition);
+
+  outline: none;
+}
+
+.scroll-input:focus,
+.scroll-textarea:focus,
+.scroll-select:focus {
+  border-color: var(--scribble-crayon-blue);
+  box-shadow:
+    inset 1px 2px 4px rgba(0, 0, 0, 0.06),
+    0 0 0 3px rgba(69, 123, 157, 0.15);
+  transform: scale(1.005);
+}
+
+.scroll-input::placeholder,
+.scroll-textarea::placeholder {
+  color: var(--scribble-pencil-light);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* Textarea */
+.scroll-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Select — custom arrow */
+.scroll-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M3,6 L8,11 L13,6' fill='none' stroke='%231a1a2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em center;
+  background-size: 16px;
+  padding-right: 2.5em;
+  cursor: pointer;
+}
+
+/* Input with icon */
+.scroll-input-icon {
+  position: relative;
+}
+
+.scroll-input-icon .scroll-input {
+  padding-left: 2.5em;
+}
+
+.scroll-input-icon__icon {
+  position: absolute;
+  left: 0.8em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--scribble-pencil);
+  pointer-events: none;
+  font-size: 1.1rem;
+}
+
+/* Fieldset & Legend — sketchy border */
+.scroll-fieldset {
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius);
+  padding: var(--scribble-space-lg);
+  margin-bottom: var(--scribble-space-lg);
+}
+
+.scroll-legend {
+  font-family: var(--scribble-font-marker);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0 var(--scribble-space-sm);
+}
+
+/* Form group — label + input stack */
+.scroll-form-group {
+  margin-bottom: var(--scribble-space-lg);
+}
+
+/* Inline form */
+.scroll-form-inline {
+  display: flex;
+  gap: var(--scribble-space-sm);
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.scroll-form-inline .scroll-form-group {
+  margin-bottom: 0;
+}
+
+/* Help text */
+.scroll-help {
+  font-size: 0.85rem;
+  color: var(--scribble-pencil);
+  margin-top: var(--scribble-space-xs);
+  font-style: italic;
+}
+
+/* Validation states */
+.scroll-input--error,
+.scroll-input--error:focus {
+  border-color: var(--scribble-crayon-red);
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.06),
+              0 0 0 3px rgba(230, 57, 70, 0.15);
+}
+
+.scroll-input--success,
+.scroll-input--success:focus {
+  border-color: var(--scribble-crayon-green);
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.06),
+              0 0 0 3px rgba(42, 157, 143, 0.15);
+}
+
+.scroll-error-text {
+  font-size: 0.85rem;
+  color: var(--scribble-crayon-red);
+  margin-top: var(--scribble-space-xs);
+  font-weight: 600;
+}
+
+.scroll-success-text {
+  font-size: 0.85rem;
+  color: var(--scribble-crayon-green);
+  margin-top: var(--scribble-space-xs);
+  font-weight: 600;
+}
+
+/* Disabled state */
+.scroll-input:disabled,
+.scroll-textarea:disabled,
+.scroll-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--scribble-paper-dark);
+}
