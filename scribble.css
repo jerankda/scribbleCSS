@@ -1445,3 +1445,105 @@ em {
   margin-bottom: var(--scribble-space-xs);
   display: block;
 }
+
+
+/* --------------------------------------------------------------------------
+   11. BADGES & TAGS
+   -------------------------------------------------------------------------- */
+
+.scroll-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--scribble-font);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.35em 0.7em;
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius);
+  background: var(--scribble-paper);
+  color: var(--scribble-ink);
+  white-space: nowrap;
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Badge variants */
+.scroll-badge--primary {
+  background: var(--scribble-crayon-blue);
+  color: #fff;
+  border-color: var(--scribble-crayon-blue);
+}
+
+.scroll-badge--crayon {
+  background: var(--scribble-crayon-red);
+  color: #fff;
+  border-color: var(--scribble-crayon-red);
+}
+
+.scroll-badge--highlight {
+  background: var(--scribble-highlight-yellow);
+  color: var(--scribble-ink);
+  border-color: var(--scribble-ink);
+}
+
+.scroll-badge--success {
+  background: var(--scribble-crayon-green);
+  color: #fff;
+  border-color: var(--scribble-crayon-green);
+}
+
+.scroll-badge--warning {
+  background: var(--scribble-crayon-orange);
+  color: #fff;
+  border-color: var(--scribble-crayon-orange);
+}
+
+.scroll-badge--purple {
+  background: var(--scribble-crayon-purple);
+  color: #fff;
+  border-color: var(--scribble-crayon-purple);
+}
+
+.scroll-badge--pink {
+  background: var(--scribble-crayon-pink);
+  color: #fff;
+  border-color: var(--scribble-crayon-pink);
+}
+
+.scroll-badge--outline {
+  background: transparent;
+  border: 2px dashed var(--scribble-ink);
+  box-shadow: none;
+}
+
+/* Pill badge */
+.scroll-badge--pill {
+  border-radius: 9999px;
+  padding: 0.35em 0.9em;
+}
+
+/* Circle badge (for numbers/avatars) */
+.scroll-badge--circle {
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  border-radius: 50%;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* Badge — arrow tag */
+.scroll-badge--arrow {
+  border-radius: var(--scribble-radius-sm) var(--scribble-radius) var(--scribble-radius) var(--scribble-radius-sm);
+}
+
+/* Badge sizes */
+.scroll-badge--sm {
+  font-size: 0.7rem;
+  padding: 0.2em 0.5em;
+}
+
+.scroll-badge--lg {
+  font-size: 1rem;
+  padding: 0.45em 0.9em;
+}
