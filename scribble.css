@@ -1547,3 +1547,190 @@ em {
   font-size: 1rem;
   padding: 0.45em 0.9em;
 }
+
+
+/* --------------------------------------------------------------------------
+   12. NAVIGATION
+   -------------------------------------------------------------------------- */
+
+/* Nav bar — paper strip */
+.scroll-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--scribble-space-sm);
+  padding: var(--scribble-space-md) var(--scribble-space-lg);
+  background: var(--scribble-paper);
+  border-bottom: var(--scribble-border);
+  flex-wrap: wrap;
+}
+
+.scroll-nav__brand {
+  font-family: var(--scribble-font-marker);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--scribble-ink);
+  margin-right: var(--scribble-space-lg);
+}
+
+.scroll-nav__link {
+  font-family: var(--scribble-font);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--scribble-ink);
+  padding: 0.4em 0.8em;
+  border-radius: var(--scribble-radius-sm);
+  border: 2px solid transparent;
+  transition: var(--scribble-transition);
+  position: relative;
+}
+
+.scroll-nav__link:hover {
+  background: var(--scribble-sticky-yellow);
+  border-color: var(--scribble-ink);
+  transform: rotate(-0.5deg);
+}
+
+.scroll-nav__link--active {
+  background: var(--scribble-highlight-yellow);
+  border-color: var(--scribble-ink);
+}
+
+/* Nav — vertical sidebar style */
+.scroll-nav--vertical {
+  flex-direction: column;
+  align-items: stretch;
+  border-bottom: none;
+  border-right: var(--scribble-border);
+  gap: var(--scribble-space-xs);
+  padding: var(--scribble-space-md);
+}
+
+.scroll-nav--vertical .scroll-nav__brand {
+  margin-right: 0;
+  margin-bottom: var(--scribble-space-md);
+  padding-bottom: var(--scribble-space-md);
+  border-bottom: 2px solid var(--scribble-paper-line);
+}
+
+/* Nav — centered */
+.scroll-nav--center {
+  justify-content: center;
+}
+
+/* Tabs — folder tab style */
+.scroll-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: var(--scribble-border);
+  margin-bottom: var(--scribble-space-lg);
+}
+
+.scroll-tab {
+  font-family: var(--scribble-font);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6em 1.2em;
+  background: var(--scribble-paper-dark);
+  border: var(--scribble-border);
+  border-bottom: none;
+  border-radius: var(--scribble-radius) var(--scribble-radius-sm) 0 0;
+  color: var(--scribble-pencil);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  top: 2px;
+  transition: var(--scribble-transition);
+  margin-right: -2px;
+}
+
+.scroll-tab:hover {
+  color: var(--scribble-ink);
+  background: var(--scribble-sticky-yellow);
+}
+
+.scroll-tab--active {
+  background: var(--scribble-paper);
+  color: var(--scribble-ink);
+  border-bottom-color: var(--scribble-paper);
+  z-index: 1;
+}
+
+/* Breadcrumb with hand-drawn arrows */
+.scroll-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--scribble-space-xs);
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.scroll-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: var(--scribble-space-xs);
+}
+
+.scroll-breadcrumb a {
+  color: var(--scribble-pencil);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--scribble-transition);
+}
+
+.scroll-breadcrumb a:hover {
+  color: var(--scribble-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.scroll-breadcrumb li:not(:last-child)::after {
+  content: '→';
+  color: var(--scribble-pencil-light);
+  font-size: 1rem;
+}
+
+.scroll-breadcrumb li:last-child {
+  color: var(--scribble-ink);
+  font-weight: 700;
+}
+
+/* Pagination */
+.scroll-pagination {
+  display: flex;
+  gap: var(--scribble-space-xs);
+  list-style: none;
+  padding: 0;
+}
+
+.scroll-pagination a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4em;
+  height: 2.4em;
+  padding: 0 var(--scribble-space-sm);
+  font-family: var(--scribble-font);
+  font-weight: 600;
+  text-decoration: none;
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius-sm);
+  color: var(--scribble-ink);
+  background: var(--scribble-paper);
+  transition: var(--scribble-transition);
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+.scroll-pagination a:hover {
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: var(--scribble-shadow);
+}
+
+.scroll-pagination .active a {
+  background: var(--scribble-crayon-blue);
+  color: #fff;
+  border-color: var(--scribble-crayon-blue);
+}
