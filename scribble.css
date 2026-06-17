@@ -2319,3 +2319,81 @@ em {
 .scroll-list--inline li::before {
   display: none;
 }
+
+
+/* --------------------------------------------------------------------------
+   18. DIVIDERS
+   -------------------------------------------------------------------------- */
+
+.scroll-hr {
+  border: none;
+  height: 4px;
+  margin: var(--scribble-space-xl) 0;
+  position: relative;
+}
+
+/* Wavy scribble */
+.scroll-hr--wavy {
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='12' viewBox='0 0 100 12'%3E%3Cpath d='M0,6 Q12,2 25,6 Q38,10 50,4 Q62,0 75,7 Q88,12 100,5' fill='none' stroke='%231a1a2e' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 50px 12px;
+}
+
+/* Zigzag */
+.scroll-hr--zigzag {
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='14' viewBox='0 0 30 14'%3E%3Cpolyline points='0,7 5,2 10,7 15,2 20,7 25,2 30,7' fill='none' stroke='%231a1a2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 30px 14px;
+}
+
+/* Scribble — fast messy line */
+.scroll-hr--scribble {
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='10' viewBox='0 0 60 10'%3E%3Cpath d='M0,5 Q5,2 10,8 Q15,3 20,6 Q25,9 30,3 Q35,1 40,7 Q45,4 50,9 Q55,5 60,7' fill='none' stroke='%231a1a2e' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 60px 10px;
+}
+
+/* Dotted hand-drawn line */
+.scroll-hr--dots {
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='8' viewBox='0 0 24 8'%3E%3Ccircle cx='4' cy='4' r='2.5' fill='%231a1a2e'/%3E%3Ccircle cx='14' cy='4' r='2.5' fill='%231a1a2e'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 24px 8px;
+}
+
+/* Double line */
+.scroll-hr--double {
+  height: 8px;
+  background-image:
+    linear-gradient(var(--scribble-ink), var(--scribble-ink));
+  background-size: 100% 2px;
+  background-position: 0 0, 0 6px;
+}
+
+/* Torn paper edge divider */
+.scroll-hr--torn {
+  height: 2px;
+  background: var(--scribble-ink);
+  filter: url('#scribble-rough');
+  -webkit-filter: url('#scribble-rough');
+}
+
+/* Color variants */
+.scroll-hr--crayon {
+  filter: none;
+}
+
+.scroll-hr--crayon.scroll-hr--wavy {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='12' viewBox='0 0 100 12'%3E%3Cpath d='M0,6 Q12,2 25,6 Q38,10 50,4 Q62,0 75,7 Q88,12 100,5' fill='none' stroke='%23e63946' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.scroll-hr--crayon.scroll-hr--zigzag {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='14' viewBox='0 0 30 14'%3E%3Cpolyline points='0,7 5,2 10,7 15,2 20,7 25,2 30,7' fill='none' stroke='%23e63946' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
