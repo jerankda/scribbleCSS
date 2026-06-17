@@ -2186,3 +2186,136 @@ em {
 .scroll-skeleton--rect {
   height: 200px;
 }
+
+
+/* --------------------------------------------------------------------------
+   17. LISTS
+   -------------------------------------------------------------------------- */
+
+/* Base list */
+.scroll-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: var(--scribble-space-md);
+}
+
+.scroll-list li {
+  padding: var(--scribble-space-xs) 0;
+  padding-left: 1.6em;
+  position: relative;
+  line-height: var(--scribble-line-height);
+}
+
+/* Circle bullet — hand-drawn hollow circle */
+.scroll-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--scribble-ink);
+  border-radius: 50%;
+  transform: rotate(10deg);
+}
+
+/* List variants */
+.scroll-list--square li::before {
+  border-radius: 2px;
+  transform: rotate(5deg);
+  width: 9px;
+  height: 9px;
+}
+
+.scroll-list--dash li::before {
+  border: none;
+  width: 12px;
+  height: 3px;
+  background: var(--scribble-ink);
+  border-radius: 2px;
+  top: 0.7em;
+  transform: rotate(-3deg);
+}
+
+.scroll-list--arrow li::before {
+  content: '→';
+  border: none;
+  width: auto;
+  height: auto;
+  font-size: 0.85em;
+  color: var(--scribble-crayon-red);
+  top: 0.15em;
+  transform: none;
+}
+
+.scroll-list--star li::before {
+  content: '★';
+  border: none;
+  width: auto;
+  height: auto;
+  font-size: 0.75em;
+  color: var(--scribble-crayon-yellow);
+  top: 0.25em;
+  transform: rotate(-5deg);
+}
+
+.scroll-list--check li::before {
+  content: '';
+  width: 8px;
+  height: 14px;
+  border: solid var(--scribble-crayon-green);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(35deg);
+  border-radius: 0;
+  top: 0.3em;
+}
+
+.scroll-list--numbered {
+  counter-reset: scribble-counter;
+}
+
+.scroll-list--numbered li {
+  counter-increment: scribble-counter;
+  padding-left: 2em;
+}
+
+.scroll-list--numbered li::before {
+  content: counter(scribble-counter);
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--scribble-ink);
+  border-radius: 50%;
+  font-size: 0.8em;
+  font-weight: 700;
+  font-family: var(--scribble-font-marker);
+  top: 0.1em;
+  transform: rotate(-5deg);
+  background: var(--scribble-sticky-yellow);
+}
+
+/* Notebook ruled list */
+.scroll-list--ruled li {
+  border-bottom: 1px solid var(--scribble-paper-line);
+}
+
+.scroll-list--ruled li:last-child {
+  border-bottom: none;
+}
+
+/* Inline list */
+.scroll-list--inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--scribble-space-sm) var(--scribble-space-lg);
+}
+
+.scroll-list--inline li {
+  padding-left: 0;
+}
+
+.scroll-list--inline li::before {
+  display: none;
+}
