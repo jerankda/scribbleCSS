@@ -2040,3 +2040,149 @@ em {
 .scroll-tip--left:hover::before {
   transform: translateY(-50%) translateX(0);
 }
+
+
+/* --------------------------------------------------------------------------
+   16. PROGRESS & LOADING
+   -------------------------------------------------------------------------- */
+
+/* Progress bar */
+.scroll-progress {
+  width: 100%;
+  height: 18px;
+  background: var(--scribble-paper);
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius);
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-progress__bar {
+  height: 100%;
+  background: var(--scribble-crayon-blue);
+  border-radius: inherit;
+  position: relative;
+  transition: width 0.6s var(--scribble-ease-bounce);
+  min-width: 0;
+}
+
+/* Crayon texture overlay on bar */
+.scroll-progress__bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.2) 3px,
+    rgba(255, 255, 255, 0.2) 6px
+  );
+  border-radius: inherit;
+}
+
+/* Progress bar — indeterminate (animated scribble) */
+.scroll-progress--indeterminate .scroll-progress__bar {
+  width: 30%;
+  animation: scribble-progress 1.8s ease-in-out infinite;
+  background-size: 150% 100%;
+  background-image: linear-gradient(
+    90deg,
+    var(--scribble-crayon-blue) 0%,
+    var(--scribble-crayon-purple) 50%,
+    var(--scribble-crayon-blue) 100%
+  );
+}
+
+/* Progress color variants */
+.scroll-progress--success .scroll-progress__bar {
+  background: var(--scribble-crayon-green);
+}
+
+.scroll-progress--warning .scroll-progress__bar {
+  background: var(--scribble-crayon-orange);
+}
+
+.scroll-progress--danger .scroll-progress__bar {
+  background: var(--scribble-crayon-red);
+}
+
+.scroll-progress--highlight .scroll-progress__bar {
+  background: var(--scribble-highlight-yellow);
+}
+
+/* Progress bar sizes */
+.scroll-progress--sm {
+  height: 10px;
+}
+
+.scroll-progress--lg {
+  height: 28px;
+}
+
+/* Progress label */
+.scroll-progress__label {
+  font-family: var(--scribble-font-marker);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--scribble-space-xs);
+  display: block;
+}
+
+/* Spinner — hand-drawn loading animation */
+.scroll-spinner {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--scribble-paper-line);
+  border-top-color: var(--scribble-ink);
+  border-radius: var(--scribble-radius);
+  animation: scribble-spin 1s var(--scribble-ease-smooth) infinite;
+}
+
+.scroll-spinner--sm {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.scroll-spinner--lg {
+  width: 52px;
+  height: 52px;
+  border-width: 4px;
+}
+
+/* Skeleton loader — placeholder */
+.scroll-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--scribble-paper-line) 25%,
+    var(--scribble-paper-dark) 50%,
+    var(--scribble-paper-line) 75%
+  );
+  background-size: 200% 100%;
+  animation: scribble-shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--scribble-radius-sm);
+}
+
+.scroll-skeleton--text {
+  height: 1em;
+  margin-bottom: 0.5em;
+}
+
+.scroll-skeleton--title {
+  height: 1.5em;
+  width: 60%;
+  margin-bottom: 1em;
+}
+
+.scroll-skeleton--circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.scroll-skeleton--rect {
+  height: 200px;
+}
