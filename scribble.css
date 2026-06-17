@@ -2084,6 +2084,7 @@ em {
 
 /* Progress bar — indeterminate (animated scribble) */
 .scroll-progress--indeterminate .scroll-progress__bar {
+  position: absolute;
   width: 30%;
   animation: scribble-progress 1.8s ease-in-out infinite;
   background-size: 150% 100%;
@@ -2372,9 +2373,11 @@ em {
 .scroll-hr--double {
   height: 8px;
   background-image:
+    linear-gradient(var(--scribble-ink), var(--scribble-ink)),
     linear-gradient(var(--scribble-ink), var(--scribble-ink));
-  background-size: 100% 2px;
+  background-size: 100% 2px, 100% 2px;
   background-position: 0 0, 0 6px;
+  background-repeat: no-repeat;
 }
 
 /* Torn paper edge divider */
