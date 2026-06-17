@@ -1821,3 +1821,109 @@ em {
   box-shadow: none;
   margin-bottom: 0;
 }
+
+
+/* --------------------------------------------------------------------------
+   14. MODALS & OVERLAYS
+   -------------------------------------------------------------------------- */
+
+/* Overlay */
+.scroll-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--scribble-transition-slow);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.scroll-overlay.is-open,
+.scroll-overlay:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal — torn paper */
+.scroll-modal {
+  background: var(--scribble-paper);
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius-lg);
+  padding: var(--scribble-space-xl) var(--scribble-space-2xl);
+  box-shadow:
+    var(--scribble-shadow-lg),
+    0 12px 40px rgba(0, 0, 0, 0.2);
+  max-width: 520px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px) rotate(0.5deg);
+  transition: transform var(--scribble-transition-slow);
+}
+
+.scroll-overlay.is-open .scroll-modal,
+.scroll-overlay:target .scroll-modal {
+  transform: translateY(0) rotate(0deg);
+}
+
+/* Modal — sticky note style */
+.scroll-modal--sticky {
+  background: var(--scribble-sticky-yellow);
+  border: none;
+  transform: translateY(20px) rotate(-1.5deg);
+}
+
+.scroll-modal--sticky::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 60px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal close button */
+.scroll-modal__close {
+  position: absolute;
+  top: var(--scribble-space-md);
+  right: var(--scribble-space-md);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--scribble-paper);
+  border: var(--scribble-border);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--scribble-ink);
+  text-decoration: none;
+  transition: var(--scribble-transition);
+  line-height: 1;
+}
+
+.scroll-modal__close:hover {
+  background: var(--scribble-crayon-red);
+  color: #fff;
+  border-color: var(--scribble-crayon-red);
+  transform: rotate(90deg);
+}
+
+/* Modal title */
+.scroll-modal__title {
+  font-family: var(--scribble-font-marker);
+  font-size: 1.4rem;
+  margin-bottom: var(--scribble-space-md);
+}
