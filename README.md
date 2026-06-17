@@ -1,6 +1,6 @@
 # scribble.css
 
-A hand-drawn CSS framework that looks like it came straight out of a kid's sketchbook. No smooth curves, no perfect grids — just wobbly lines, crayon colors, and sticky-note charm.
+A hand-drawn CSS framework. Wobbly borders, crooked lines, marker fonts. Like something from a notebook margin.
 
 ## Quick Start
 
