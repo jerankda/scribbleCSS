@@ -2397,3 +2397,123 @@ em {
 .scroll-hr--crayon.scroll-hr--zigzag {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='14' viewBox='0 0 30 14'%3E%3Cpolyline points='0,7 5,2 10,7 15,2 20,7 25,2 30,7' fill='none' stroke='%23e63946' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
+
+
+/* --------------------------------------------------------------------------
+   19. ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Wobble — uneven shake */
+@keyframes scribble-wobble {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-1deg); }
+  40% { transform: rotate(0.8deg); }
+  60% { transform: rotate(-0.5deg); }
+  80% { transform: rotate(0.3deg); }
+}
+
+.scroll-anim-wobble {
+  animation: scribble-wobble 0.6s var(--scribble-ease-smooth) both;
+}
+
+.scroll-anim-wobble--infinite {
+  animation-iteration-count: infinite;
+}
+
+/* Draw-in — line drawing effect */
+@keyframes scribble-draw {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+.scroll-anim-draw {
+  animation: scribble-draw 0.8s var(--scribble-ease-smooth) both;
+}
+
+/* Shake — quick side-to-side */
+@keyframes scribble-shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-4px) rotate(-1deg); }
+  30% { transform: translateX(3px) rotate(0.5deg); }
+  45% { transform: translateX(-2px); }
+  60% { transform: translateX(2px) rotate(-0.3deg); }
+  75% { transform: translateX(-1px); }
+}
+
+.scroll-anim-shake {
+  animation: scribble-shake 0.5s var(--scribble-ease-smooth) both;
+}
+
+/* Drop-in — fall and bounce */
+@keyframes scribble-drop-in {
+  0%   { opacity: 0; transform: translateY(-30px) rotate(-3deg); }
+  60%  { opacity: 1; transform: translateY(4px) rotate(0.5deg); }
+  80%  { transform: translateY(-2px) rotate(-0.2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.scroll-anim-drop-in {
+  animation: scribble-drop-in 0.5s var(--scribble-ease-bounce) both;
+}
+
+/* Fade in */
+@keyframes scribble-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.scroll-anim-fade-in {
+  animation: scribble-fade-in 0.4s var(--scribble-ease-smooth) both;
+}
+
+/* Pop — scale up */
+@keyframes scribble-pop {
+  0%   { transform: scale(0.8); opacity: 0; }
+  60%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.scroll-anim-pop {
+  animation: scribble-pop 0.35s var(--scribble-ease-bounce) both;
+}
+
+/* Spin — custom rough spin for spinners */
+@keyframes scribble-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Progress bar indeterminate animation */
+@keyframes scribble-progress {
+  0%   { left: -35%; }
+  100% { left: 105%; }
+}
+
+/* Skeleton shimmer */
+@keyframes scribble-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Animation utilities */
+.scroll-anim-delay-1 { animation-delay: 0.1s; }
+.scroll-anim-delay-2 { animation-delay: 0.2s; }
+.scroll-anim-delay-3 { animation-delay: 0.3s; }
+.scroll-anim-delay-4 { animation-delay: 0.4s; }
+.scroll-anim-delay-5 { animation-delay: 0.5s; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-spinner {
+    animation: none;
+    border-top-color: var(--scribble-paper-line);
+  }
+}
