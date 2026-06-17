@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scribble.css — a hand-drawn CSS framework</title>
+
+  <!-- Google Fonts for handwriting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Pangolin&family=Permanent+Marker&family=Comic+Neue:wght@400;700&family=Courier+Prime&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="scribble.css">
+
+  <style>
+    /* Showcase-specific overrides */
+    .showcase {
+      padding: var(--scribble-space-2xl) 0;
+    }
+
+    .showcase h2 {
+      margin-top: var(--scribble-space-3xl);
+    }
+
+    .showcase h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .showcase-section {
+      margin-bottom: var(--scribble-space-3xl);
+    }
+
+    .showcase-label {
+      display: inline-block;
+      font-family: var(--scribble-font);
+      font-size: 0.75rem;
+      color: var(--scribble-pencil);
+      font-style: italic;
+      margin-bottom: var(--scribble-space-sm);
+    }
+
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--scribble-space-md);
+      align-items: center;
+      margin-bottom: var(--scribble-space-md);
+    }
+
+    .demo-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--scribble-space-md);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Filters -->
+  <svg style="display:none;position:absolute;width:0;height:0" aria-hidden="true">
+    <filter id="scribble-rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <filter id="scribble-rough-heavy" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="turbulence" baseFrequency="0.06" numOctaves="4" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <filter id="scribble-crayon" x="-2%" y="-2%" width="104%" height="104%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" in="noise" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.08 0" />
+      <feComposite in="SourceGraphic" in2="noise" operator="in" />
+    </filter>
+
+    <filter id="scribble-tear" x="-2%" y="-2%" width="104%" height="104%">
+      <feTurbulence type="turbulence" baseFrequency="0.08" numOctaves="5" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+
+  <div class="scroll-container showcase">
+
+    <!-- Hero -->
+    <div class="scroll-stack scroll-stack--xl" style="text-align:center;padding:var(--scribble-space-3xl) 0">
+      <h1>scribble.css</h1>
+      <p style="font-size:1.2rem;max-width:560px;margin:0 auto;color:var(--scribble-pencil)">
+        A hand-drawn CSS framework that looks like it came straight
+        out of a kid&rsquo;s sketchbook. No smooth curves, no perfect grids &mdash;
+        just wobbly lines and crayon colors.
+      </p>
+      <div class="scroll-flex scroll-flex--center scroll-flex--gap-lg" style="margin-top:var(--scribble-space-lg)">
+        <a href="#start" class="scroll-btn scroll-btn--primary scroll-btn--lg scroll-tilt-2">Get Started</a>
+        <a href="#" class="scroll-btn scroll-btn--ghost scroll-btn--lg scroll-tilt-5">GitHub</a>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--wavy scroll-hr--crayon">
+
+    <!-- Typography -->
+    <div class="showcase-section" id="start">
+      <span class="showcase-label">&sect; Typography</span>
+      <h2>Headings &amp; text</h2>
+      <p class="scroll-mb-md">Headings come with <mark>hand-drawn underlines</mark> baked in.
+      <del>Cross things out</del> with a wavy strikethrough, or <ins>scribble-underline</ins> important bits.</p>
+
+      <h1>Heading One &mdash; the big idea</h1>
+      <h2>Heading Two &mdash; still pretty loud</h2>
+      <h3>Heading Three &mdash; getting calmer</h3>
+      <h4>Heading Four</h4>
+      <h5>Heading Five</h5>
+      <h6>Heading Six &mdash; tiny but mighty</h6>
+
+      <blockquote>
+        This is a blockquote. It looks like a torn sticky note with a piece of
+        tape holding it down. Slightly crooked, as if a kid stuck it on the page.
+        <cite>Someone with crayons</cite>
+      </blockquote>
+
+      <p>Inline <code>code</code> looks like it was written in a notebook margin.
+      Here&rsquo;s a <mark>highlighted</mark> phrase using the highlighter marker.</p>
+
+      <pre><code>/* This is a code block */
+.scroll-card {
+  border-radius: var(--scribble-radius);
+  box-shadow: var(--scribble-shadow);
+}</code></pre>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--scribble">
+
+    <!-- Buttons -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Buttons</span>
+      <h2>Buttons</h2>
+
+      <div class="demo-row">
+        <button class="scroll-btn">Default</button>
+        <button class="scroll-btn scroll-btn--primary">Primary</button>
+        <button class="scroll-btn scroll-btn--ink">Ink</button>
+        <button class="scroll-btn scroll-btn--crayon">Crayon</button>
+        <button class="scroll-btn scroll-btn--highlight">Highlight</button>
+        <button class="scroll-btn scroll-btn--ghost">Ghost</button>
+      </div>
+
+      <div class="demo-row">
+        <button class="scroll-btn scroll-btn--success">Success</button>
+        <button class="scroll-btn scroll-btn--warning">Warning</button>
+        <button class="scroll-btn scroll-btn--danger">Danger</button>
+        <button class="scroll-btn scroll-btn--torn">Torn edge</button>
+        <button class="scroll-btn" disabled>Disabled</button>
+      </div>
+
+      <div class="demo-row">
+        <button class="scroll-btn scroll-btn--primary scroll-btn--sm">Small</button>
+        <button class="scroll-btn scroll-btn--primary">Default</button>
+        <button class="scroll-btn scroll-btn--primary scroll-btn--lg">Large</button>
+        <button class="scroll-btn scroll-btn--primary scroll-btn--xl">Extra Large</button>
+      </div>
+
+      <div class="demo-row">
+        <button class="scroll-btn scroll-btn--primary scroll-btn--pill">Pill shape</button>
+        <button class="scroll-btn scroll-btn--crayon scroll-btn--block" style="width:300px">Block (full width)</button>
+      </div>
+
+      <div class="demo-row">
+        <div class="scroll-btn-group">
+          <button class="scroll-btn">Left</button>
+          <button class="scroll-btn">Middle</button>
+          <button class="scroll-btn">Right</button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--dots">
+
+    <!-- Cards -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Cards</span>
+      <h2>Cards</h2>
+
+      <div class="scroll-grid scroll-grid--auto" style="margin-bottom:var(--scribble-space-lg)">
+        <div class="scroll-card scroll-tilt-3">
+          <div class="scroll-card__title">Default Card</div>
+          <p>This is a plain card with a hand-drawn border and a subtle shadow.
+          Hover over me to see the wobble.</p>
+        </div>
+
+        <div class="scroll-card scroll-card--notebook scroll-tilt-5">
+          <div class="scroll-card__title">Notebook Card</div>
+          <p>This one has ruled lines and a red margin, just like notebook paper.
+          Writing feels more authentic here.</p>
+        </div>
+
+        <div class="scroll-card scroll-card--sticky scroll-tilt-2">
+          <div class="scroll-card__title">Sticky Note</div>
+          <p>Looks like a Post-it with a piece of tape at the top. Great for callouts and reminders.</p>
+        </div>
+      </div>
+
+      <div class="scroll-grid scroll-grid--auto">
+        <div class="scroll-card scroll-card--sticky-pink scroll-tilt-1">
+          <div class="scroll-card__title">Pink Sticky</div>
+          <p>Different sticky note colors for different vibes.</p>
+        </div>
+
+        <div class="scroll-card scroll-card--sticky-blue scroll-tilt-4">
+          <div class="scroll-card__title">Blue Sticky</div>
+          <p>Information and ideas go on blue notes.</p>
+        </div>
+
+        <div class="scroll-card scroll-card--sticky-green scroll-tilt-6">
+          <div class="scroll-card__title">Green Sticky</div>
+          <p>Success messages and positive notes.</p>
+        </div>
+
+        <div class="scroll-card scroll-card--doodle scroll-tilt-1">
+          <div class="scroll-card__title">Doodle Border</div>
+          <p>Has a double-line sketchy border using outline-offset trickery.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--zigzag">
+
+    <!-- Forms -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Forms</span>
+      <h2>Forms</h2>
+
+      <div class="scroll-grid scroll-grid--auto" style="margin-bottom:var(--scribble-space-lg)">
+        <div class="scroll-form-group">
+          <label class="scroll-label" for="demo-text">Your name</label>
+          <input class="scroll-input" type="text" id="demo-text" placeholder="Scribble your name here&hellip;">
+          <span class="scroll-help">This is some helper text under the field.</span>
+        </div>
+
+        <div class="scroll-form-group">
+          <label class="scroll-label" for="demo-email">Email address</label>
+          <input class="scroll-input" type="email" id="demo-email" placeholder="you@example.com">
+        </div>
+      </div>
+
+      <div class="scroll-form-group">
+        <label class="scroll-label" for="demo-select">Favorite crayon color</label>
+        <select class="scroll-select" id="demo-select">
+          <option>Red</option>
+          <option>Blue</option>
+          <option>Green</option>
+          <option>Yellow</option>
+          <option>Purple</option>
+        </select>
+      </div>
+
+      <div class="scroll-form-group">
+        <label class="scroll-label" for="demo-textarea">Your message</label>
+        <textarea class="scroll-textarea" id="demo-textarea" placeholder="Write something doodly&hellip;"></textarea>
+      </div>
+
+      <fieldset class="scroll-fieldset">
+        <legend class="scroll-legend">Checkboxes &amp; Radios</legend>
+
+        <div class="scroll-stack scroll-stack--sm" style="margin-bottom:var(--scribble-space-md)">
+          <label class="scroll-checkbox">
+            <input type="checkbox" checked>
+            <span class="scroll-checkbox__indicator"></span>
+            Crayons
+          </label>
+          <label class="scroll-checkbox">
+            <input type="checkbox" checked>
+            <span class="scroll-checkbox__indicator"></span>
+            Markers
+          </label>
+          <label class="scroll-checkbox">
+            <input type="checkbox">
+            <span class="scroll-checkbox__indicator"></span>
+            Colored pencils
+          </label>
+          <label class="scroll-checkbox">
+            <input type="checkbox" disabled>
+            <span class="scroll-checkbox__indicator"></span>
+            Fountain pen (sold out)
+          </label>
+        </div>
+
+        <div class="scroll-stack scroll-stack--sm">
+          <label class="scroll-radio">
+            <input type="radio" name="demo-radio" checked>
+            <span class="scroll-radio__indicator"></span>
+            Ruled paper
+          </label>
+          <label class="scroll-radio">
+            <input type="radio" name="demo-radio">
+            <span class="scroll-radio__indicator"></span>
+            Grid paper
+          </label>
+          <label class="scroll-radio">
+            <input type="radio" name="demo-radio">
+            <span class="scroll-radio__indicator"></span>
+            Blank paper
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="demo-row">
+        <label class="scroll-switch">
+          <input type="checkbox" checked>
+          <span class="scroll-switch__track">
+            <span class="scroll-switch__thumb"></span>
+          </span>
+          Dark mode (coming soon)
+        </label>
+      </div>
+
+      <div class="demo-row" style="margin-top:var(--scribble-space-lg)">
+        <input class="scroll-input scroll-input--error" type="text" value="oops@bad-email" style="max-width:300px">
+        <span class="scroll-error-text">That doesn&rsquo;t look like a real email address.</span>
+      </div>
+
+      <div class="demo-row">
+        <input class="scroll-input scroll-input--success" type="text" value="good@email.com" style="max-width:300px">
+        <span class="scroll-success-text">Looking good!</span>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--wavy">
+
+    <!-- Alerts -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Alerts</span>
+      <h2>Alerts &amp; notifications</h2>
+
+      <div class="scroll-alert scroll-alert--note scroll-tilt-3">
+        <div>
+          <strong class="scroll-alert__title">Heads up!</strong>
+          This is a sticky-note alert. It looks like someone jotted a reminder
+          and stuck it on the screen.
+        </div>
+      </div>
+
+      <div class="scroll-alert scroll-alert--info">
+        <span class="scroll-alert__icon">&#9998;</span>
+        <div>
+          <strong class="scroll-alert__title">Information</strong>
+          Here&rsquo;s something you should know. The blue left border
+          helps it stand out.
+        </div>
+        <button class="scroll-alert__close">&times;</button>
+      </div>
+
+      <div class="scroll-alert scroll-alert--success">
+        <span class="scroll-alert__icon">&#10003;</span>
+        <div>
+          <strong class="scroll-alert__title">Success!</strong>
+          Your doodle was saved to the sketchbook. Great work.
+        </div>
+      </div>
+
+      <div class="scroll-alert scroll-alert--warning">
+        <span class="scroll-alert__icon">&#9888;</span>
+        <div>
+          <strong class="scroll-alert__title">Warning</strong>
+          You&rsquo;re almost out of paper. Time to grab a new notebook.
+        </div>
+      </div>
+
+      <div class="scroll-alert scroll-alert--error">
+        <span class="scroll-alert__icon">&#10007;</span>
+        <div>
+          <strong class="scroll-alert__title">Error</strong>
+          The crayon broke. Please sharpen and try again.
+        </div>
+      </div>
+
+      <div class="scroll-alert scroll-alert--shout scroll-tilt-5">
+        <div>
+          <strong class="scroll-alert__title">Speech bubble!</strong>
+          This alert has a little speech-bubble tail. Useful for tooltip-like callouts.
+        </div>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--scribble">
+
+    <!-- Badges -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Badges &amp; Tags</span>
+      <h2>Badges</h2>
+
+      <div class="demo-row">
+        <span class="scroll-badge">Default</span>
+        <span class="scroll-badge scroll-badge--primary">Primary</span>
+        <span class="scroll-badge scroll-badge--crayon">Crayon</span>
+        <span class="scroll-badge scroll-badge--highlight">Highlight</span>
+        <span class="scroll-badge scroll-badge--success">Success</span>
+        <span class="scroll-badge scroll-badge--warning">Warning</span>
+        <span class="scroll-badge scroll-badge--purple">Purple</span>
+        <span class="scroll-badge scroll-badge--pink">Pink</span>
+        <span class="scroll-badge scroll-badge--outline">Outline</span>
+      </div>
+
+      <div class="demo-row">
+        <span class="scroll-badge scroll-badge--primary scroll-badge--pill">Pill</span>
+        <span class="scroll-badge scroll-badge--crayon scroll-badge--circle">5</span>
+        <span class="scroll-badge scroll-badge--success scroll-badge--circle">42</span>
+        <span class="scroll-badge scroll-badge--primary scroll-badge--arrow">Arrow tag</span>
+      </div>
+
+      <div class="demo-row">
+        <span class="scroll-badge scroll-badge--primary scroll-badge--sm">Small</span>
+        <span class="scroll-badge scroll-badge--primary">Default</span>
+        <span class="scroll-badge scroll-badge--primary scroll-badge--lg">Large</span>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--dots">
+
+    <!-- Navigation -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Navigation</span>
+      <h2>Navigation</h2>
+
+      <div class="scroll-card scroll-card--notebook" style="margin-bottom:var(--scribble-space-lg);padding-top:0;padding-bottom:var(--scribble-space-sm)">
+        <nav class="scroll-nav">
+          <a href="#" class="scroll-nav__brand">Scribble</a>
+          <a href="#" class="scroll-nav__link scroll-nav__link--active">Home</a>
+          <a href="#" class="scroll-nav__link">Doodles</a>
+          <a href="#" class="scroll-nav__link">Sketchbook</a>
+          <a href="#" class="scroll-nav__link">About</a>
+        </nav>
+      </div>
+
+      <div class="scroll-tabs" style="margin-bottom:var(--scribble-space-lg)">
+        <button class="scroll-tab scroll-tab--active">Latest doodles</button>
+        <button class="scroll-tab">Popular</button>
+        <button class="scroll-tab">Crayon drawings</button>
+        <button class="scroll-tab">Archived</button>
+      </div>
+
+      <div>
+        <ol class="scroll-breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Sketchbook</a></li>
+          <li>Page 7</li>
+        </ol>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--zigzag">
+
+    <!-- Tables -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Tables</span>
+      <h2>Tables</h2>
+
+      <table class="scroll-table scroll-table--striped scroll-table--hover">
+        <thead>
+          <tr>
+            <th>Supply</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Crayon</td>
+            <td>Crayola</td>
+            <td>Red</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>Marker</td>
+            <td>Sharpie</td>
+            <td>Blue</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>Colored Pencil</td>
+            <td>Prismacolor</td>
+            <td>Green</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>Highlighter</td>
+            <td>Stabilo</td>
+            <td>Yellow</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--wavy scroll-hr--crayon">
+
+    <!-- Lists -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Lists</span>
+      <h2>Lists</h2>
+
+      <div class="scroll-grid scroll-grid--auto">
+        <div>
+          <h4>Circle bullets</h4>
+          <ul class="scroll-list">
+            <li>Sketch ideas</li>
+            <li>Doodle in margins</li>
+            <li>Color outside lines</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Square bullets</h4>
+          <ul class="scroll-list scroll-list--square">
+            <li>Buy new crayons</li>
+            <li>Sharpen pencils</li>
+            <li>Find eraser</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Arrow bullets</h4>
+          <ul class="scroll-list scroll-list--arrow">
+            <li>Start here</li>
+            <li>Then go there</li>
+            <li>End up somewhere</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Star bullets</h4>
+          <ul class="scroll-list scroll-list--star">
+            <li>Important thing</li>
+            <li>Also important</li>
+            <li>Very important</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Check bullets</h4>
+          <ul class="scroll-list scroll-list--check">
+            <li>Finished homework</li>
+            <li>Cleaned desk</li>
+            <li>Drew something</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Numbered list</h4>
+          <ol class="scroll-list scroll-list--numbered">
+            <li>Wake up</li>
+            <li>Grab crayons</li>
+            <li>Make art</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--scribble">
+
+    <!-- Progress -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Progress &amp; Loading</span>
+      <h2>Progress</h2>
+
+      <div style="max-width:500px">
+        <span class="scroll-progress__label">Drawing completion: 75%</span>
+        <div class="scroll-progress" style="margin-bottom:var(--scribble-space-md)">
+          <div class="scroll-progress__bar" style="width:75%"></div>
+        </div>
+
+        <div class="scroll-progress scroll-progress--success" style="margin-bottom:var(--scribble-space-md)">
+          <div class="scroll-progress__bar" style="width:100%"></div>
+        </div>
+
+        <div class="scroll-progress scroll-progress--warning" style="margin-bottom:var(--scribble-space-md)">
+          <div class="scroll-progress__bar" style="width:40%"></div>
+        </div>
+
+        <div class="scroll-progress scroll-progress--danger" style="margin-bottom:var(--scribble-space-md)">
+          <div class="scroll-progress__bar" style="width:15%"></div>
+        </div>
+
+        <div class="scroll-progress scroll-progress--indeterminate" style="margin-bottom:var(--scribble-space-md)">
+          <div class="scroll-progress__bar"></div>
+        </div>
+      </div>
+
+      <div class="demo-row">
+        <div class="scroll-spinner"></div>
+        <div class="scroll-spinner scroll-spinner--sm"></div>
+        <div class="scroll-spinner scroll-spinner--lg"></div>
+      </div>
+
+      <div style="max-width:400px;margin-top:var(--scribble-space-lg)">
+        <div class="scroll-skeleton scroll-skeleton--title"></div>
+        <div class="scroll-skeleton scroll-skeleton--text"></div>
+        <div class="scroll-skeleton scroll-skeleton--text" style="width:80%"></div>
+        <div class="scroll-skeleton scroll-skeleton--text" style="width:60%"></div>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--dots">
+
+    <!-- Tooltips -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Tooltips</span>
+      <h2>Tooltips</h2>
+
+      <p>
+        Hover over
+        <span class="scroll-tip" data-tip="A hand-drawn sticky note tooltip!" tabindex="0">this text</span>
+        or
+        <span class="scroll-tip scroll-tip--bottom" data-tip="I appear below the element" tabindex="0">this one</span>
+        to see tooltips appear. Pure CSS &mdash; no JavaScript.
+      </p>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--wavy">
+
+    <!-- Animation Demos -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Animations</span>
+      <h2>Motion</h2>
+
+      <div class="demo-row">
+        <span class="scroll-badge scroll-badge--primary scroll-anim-wobble scroll-anim-wobble--infinite">Wobble</span>
+        <span class="scroll-badge scroll-badge--crayon scroll-anim-shake scroll-anim-wobble--infinite" style="animation-delay:0.15s">Shake</span>
+        <span class="scroll-badge scroll-badge--success scroll-anim-pop scroll-anim-wobble--infinite" style="animation-delay:0.3s">Pop</span>
+      </div>
+
+      <div class="demo-row" style="margin-top:var(--scribble-space-md)">
+        <div class="scroll-card scroll-anim-drop-in" style="animation-delay:0.1s">
+          <div class="scroll-card__title">Drop-in card</div>
+          <p>This card uses the drop-in animation on page load.</p>
+        </div>
+        <div class="scroll-card scroll-card--sticky scroll-anim-fade-in" style="animation-delay:0.3s">
+          <div class="scroll-card__title">Fade-in note</div>
+          <p>Smooth fade-in for subtle entrances.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--scribble">
+
+    <!-- Grid Demo -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Grid System</span>
+      <h2>Layout</h2>
+
+      <p class="scroll-mb-md">A 12-column grid with gap control. Each block below shows its column span.</p>
+
+      <div class="scroll-grid" style="margin-bottom:var(--scribble-space-md)">
+        <div class="scroll-card scroll-col-6" style="text-align:center">.scroll-col-6</div>
+        <div class="scroll-card scroll-col-6" style="text-align:center">.scroll-col-6</div>
+      </div>
+
+      <div class="scroll-grid">
+        <div class="scroll-card scroll-col-4" style="text-align:center">.scroll-col-4</div>
+        <div class="scroll-card scroll-col-4" style="text-align:center">.scroll-col-4</div>
+        <div class="scroll-card scroll-col-4" style="text-align:center">.scroll-col-4</div>
+      </div>
+
+      <div class="scroll-grid scroll-grid--auto-lg" style="margin-top:var(--scribble-space-md)">
+        <div class="scroll-card scroll-card--sticky-blue" style="text-align:center">Auto-fit grid</div>
+        <div class="scroll-card scroll-card--sticky-pink" style="text-align:center">Automatically wraps</div>
+        <div class="scroll-card scroll-card--sticky-green" style="text-align:center">Based on min width</div>
+      </div>
+    </div>
+
+    <hr class="scroll-hr scroll-hr--double">
+
+    <!-- Tilt Gallery -->
+    <div class="showcase-section">
+      <span class="showcase-label">&sect; Tilt Utilities</span>
+      <h2>Tilt &amp; rotation</h2>
+      <p class="scroll-mb-md">8 pseudo-random rotation classes. Hover any card to see it straighten out.</p>
+
+      <div class="scroll-grid scroll-grid--auto-sm">
+        <div class="scroll-card scroll-card--sticky scroll-tilt-1" style="text-align:center">-.tilt-1</div>
+        <div class="scroll-card scroll-card--sticky-blue scroll-tilt-2" style="text-align:center">-.tilt-2</div>
+        <div class="scroll-card scroll-card--sticky-pink scroll-tilt-3" style="text-align:center">-.tilt-3</div>
+        <div class="scroll-card scroll-card--sticky-green scroll-tilt-4" style="text-align:center">-.tilt-4</div>
+        <div class="scroll-card scroll-card--sticky scroll-tilt-5" style="text-align:center">-.tilt-5</div>
+        <div class="scroll-card scroll-card--sticky-blue scroll-tilt-6" style="text-align:center">-.tilt-6</div>
+        <div class="scroll-card scroll-card--sticky-pink scroll-tilt-7" style="text-align:center">-.tilt-7</div>
+        <div class="scroll-card scroll-card--sticky-lavender scroll-tilt-8" style="text-align:center">-.tilt-8</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <hr class="scroll-hr scroll-hr--wavy scroll-hr--crayon">
+    <div style="text-align:center;padding:var(--scribble-space-2xl) 0">
+      <p style="font-size:0.9rem;color:var(--scribble-pencil)">
+        <strong>scribble.css</strong> &mdash; a hand-drawn CSS framework.
+        <br>MIT License &middot; sketched with crayons &amp; CSS
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
