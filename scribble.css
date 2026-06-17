@@ -1927,3 +1927,116 @@ em {
   font-size: 1.4rem;
   margin-bottom: var(--scribble-space-md);
 }
+
+
+/* --------------------------------------------------------------------------
+   15. TOOLTIPS
+   -------------------------------------------------------------------------- */
+
+/* Tooltip — pure CSS via data attribute */
+.scroll-tip {
+  position: relative;
+  cursor: help;
+}
+
+.scroll-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  white-space: nowrap;
+
+  font-family: var(--scribble-font);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--scribble-ink);
+  background: var(--scribble-sticky-yellow);
+  border: var(--scribble-border);
+  border-radius: var(--scribble-radius-sm);
+  padding: 0.35em 0.75em;
+  box-shadow: var(--scribble-shadow-sm);
+
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity var(--scribble-transition),
+    transform var(--scribble-transition);
+  transform: translateX(-50%) translateY(4px);
+  z-index: 900;
+}
+
+.scroll-tip::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--scribble-ink);
+
+  opacity: 0;
+  transition:
+    opacity var(--scribble-transition),
+    transform var(--scribble-transition);
+  transform: translateX(-50%) translateY(4px);
+}
+
+.scroll-tip:hover::after,
+.scroll-tip:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.scroll-tip:hover::before,
+.scroll-tip:focus-visible::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Tooltip positions */
+.scroll-tip--bottom::after {
+  bottom: auto;
+  top: calc(100% + 8px);
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.scroll-tip--bottom::before {
+  bottom: auto;
+  top: calc(100% + 2px);
+  transform: translateX(-50%) translateY(-4px);
+  border-top: none;
+  border-bottom: 6px solid var(--scribble-ink);
+}
+
+.scroll-tip--bottom:hover::after,
+.scroll-tip--bottom:hover::before {
+  transform: translateX(-50%) translateY(0);
+}
+
+.scroll-tip--left::after {
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: calc(100% + 8px);
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.scroll-tip--left::before {
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: calc(100% + 2px);
+  transform: translateY(-50%) translateX(-4px);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: none;
+  border-left: 6px solid var(--scribble-ink);
+}
+
+.scroll-tip--left:hover::after,
+.scroll-tip--left:hover::before {
+  transform: translateY(-50%) translateX(0);
+}
